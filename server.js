@@ -33,15 +33,19 @@ app.use(bodyParser.urlencoded({
 
 //MONGOOSE SETUP
 //If deployed, use that database else use mongoHeadlines database
-var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 // Connect Mongoose to db
-mongoose.connect(db, error => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("mongoose connecton successful");
-  }
-});
+mongoose.connect(MONGODB_URI);
+// //If deployed, use that database else use mongoHeadlines database
+// var db = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+// // Connect Mongoose to db
+// mongoose.connect(db, error => {
+//   if (error) {
+//     console.log(error);
+//   } else {
+//     console.log("mongoose connecton successful");
+//   }
+// });
 
 //Listen on PORT...
 app.listen(PORT, function() {
