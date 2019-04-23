@@ -17,7 +17,7 @@ module.exports = {
       }
       //A Mongo function
       //saves the articles into the Headline collection in the mongo db
-      Headline.collection.insertMany(articles, { ordered: false }, function(err, docs) {
+      Headline.insertMany(articles, { ordered: false }, function(err, docs) {
         //the callback error function allows the error to happen but keeps going through
         //the articles and add them to the mongo db collection until the for loop function is done running
         cb(err, docs); //returns the error to display in the docs
